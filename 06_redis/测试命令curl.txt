@@ -1,0 +1,18 @@
+登录获取token的命令：
+
+curl -X POST "http://localhost:8080/user/login" -H "Content-Type: application/x-www-form-urlencoded" -d "username=zhangsan&password=234567"
+获取用户的命令：
+curl -X GET "http://localhost:8080/user/userInfo" -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjbGFpbXMiOnsiaWQiOjEsInVzZXJuYW1lIjoiemhhbmdzYW4ifSwiZXhwIjoxNzM1OTgzMzc1fQ.grNlJPvcsNnKwIHfEkyTFbmV6Jh4pPtfwRlkMX67TYs"
+//修改密码
+curl -X PATCH http://localhost:8080/user/updatePwd \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer your_token_here" \
+-d '{
+    "old_pwd": "123456",
+    "new_pwd": "234567",
+    "re_pwd": "234567"
+}'
+
+
+
+#taskkill /F /IM redis-server.exe
